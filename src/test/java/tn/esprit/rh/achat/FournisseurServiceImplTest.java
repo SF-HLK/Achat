@@ -1,4 +1,4 @@
-/*package tn.esprit.rh.achat.services;
+package tn.esprit.rh.achat.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -19,9 +19,8 @@ class FournisseurServiceImplTest {
     FournisseurServiceImpl fournisseur;
     @Test
     @Order(1)
-    public void testRetrieveAllFournisseurs() {
+    public void testRetrieveAllUsers() {
         List<Fournisseur> listFournisseur = fournisseur.retrieveAllFournisseurs();
         Assertions.assertEquals(0, listFournisseur.size());
     }
 }
-*/
