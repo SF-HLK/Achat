@@ -31,12 +31,18 @@ private FournisseurRepository repository;
 DetailFournisseur df = new DetailFournisseur();
 
 @Test
-public void addFournisseurTest(){
-    System.out.println("hhhhhh");
+public void addFournisseur(){
+    System.out.println("addFournisseur");
     when(repository.findAll()).thenReturn(Stream
             .of(new Fournisseur(12, "code safa", "libelle safa",ORDINAIRE), new Fournisseur(22, "Code HLK","Libelle HLK",ORDINAIRE)).collect(Collectors.toList()));
     assertEquals(2, service.retrieveAllFournisseurs().size());
 }
+    @Test
+    public void retrieveAllFournisseurs() {
+        System.out.println("retrieveAllFournisseurs");
+        Fournisseur fournisseur = new Fournisseur(12, "Safa", "HLK", ORDINAIRE);
+        when(repository.save(fournisseur)).thenReturn(fournisseur);
+        assertEquals(fournisseur, service.addFournisseur(fournisseur));
 
-
+    }
 }
