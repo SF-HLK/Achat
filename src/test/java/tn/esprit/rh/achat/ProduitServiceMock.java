@@ -64,7 +64,7 @@ public class ProduitServiceMock {
     }
 
     @Test
-    public void testaddProduit(){
+    void testaddProduit(){
         Mockito.when(produitRepository.save(p1)).thenReturn(p1);
         Produit produit1 = produitService.addProduit(p1);
         assertNotNull(produit1);
@@ -73,7 +73,7 @@ public class ProduitServiceMock {
 
 
     @Test
-    public void testdeleteProduit(){
+    void testdeleteProduit(){
 
         produitService.deleteProduit(66L);
         Mockito.verify(produitRepository, times(0)).delete(p2);
