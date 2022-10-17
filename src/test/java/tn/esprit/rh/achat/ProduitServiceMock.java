@@ -27,7 +27,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class ProduitServiceMock {
+class ProduitServiceMock {
 
 
     @Mock
@@ -48,7 +48,7 @@ public class ProduitServiceMock {
         }
     };
     @Test
-    public void testRetrieveProduit() {
+    void testRetrieveProduit() {
         Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
         Produit produit1 = produitService.retrieveProduit(55L);
         assertNotNull(produit1);
@@ -56,7 +56,7 @@ public class ProduitServiceMock {
     }
 
     @Test
-    public void testretrieveAllProduits() {
+    void testretrieveAllProduits() {
         Mockito.when(produitRepository.findAll()).thenReturn(listProduits);
         List<Produit> listproduit3 = produitService.retrieveAllProduits();
         assertEquals(3, listproduit3.size());
