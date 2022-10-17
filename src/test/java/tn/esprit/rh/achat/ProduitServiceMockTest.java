@@ -43,7 +43,7 @@ public class ProduitServiceMockTest {
         }
     };
     @Test
-     void testRetrieveProduit() {
+    public void testRetrieveProduit() {
         Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
         Produit produit1 = produitService.retrieveProduit(55L);
         assertNotNull(produit1);
@@ -51,7 +51,7 @@ public class ProduitServiceMockTest {
     }
 
     @Test
-     void testretrieveAllProduits() {
+    public void testretrieveAllProduits() {
         Mockito.when(produitRepository.findAll()).thenReturn(listProduits);
         List<Produit> listproduit3 = produitService.retrieveAllProduits();
         assertEquals(3, listproduit3.size());
@@ -59,7 +59,7 @@ public class ProduitServiceMockTest {
     }
 
     @Test
-     void testaddProduit(){
+    public void testaddProduit(){
         Mockito.when(produitRepository.save(p1)).thenReturn(p1);
         Produit produit1 = produitService.addProduit(p1);
         assertNotNull(produit1);
@@ -68,7 +68,7 @@ public class ProduitServiceMockTest {
 
 
     @Test
-    void testdeleteProduit(){
+    public void testdeleteProduit(){
 
         produitService.deleteProduit(66L);
         Mockito.verify(produitRepository, times(0)).delete(p2);
