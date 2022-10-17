@@ -33,7 +33,7 @@ class ProduitServiceMock {
 
 
 
-    @Mock
+   /* @Mock
     ProduitRepository produitRepository;
 
     @InjectMocks
@@ -51,7 +51,7 @@ class ProduitServiceMock {
         }
     };
 
-
+*/
 
 
     @Test
