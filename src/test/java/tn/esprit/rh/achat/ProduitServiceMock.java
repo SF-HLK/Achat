@@ -30,7 +30,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ProduitServiceMock {
 
-/*
+
 
 
     @Mock
@@ -62,7 +62,7 @@ class ProduitServiceMock {
         System.out.println("1");
         //assertEquals(produit1.getIdProduit(),55L);
     }
-
+/*
     @Test
     void testretrieveAllProduits() {
         Mockito.when(produitRepository.findAll()).thenReturn(listProduits);
