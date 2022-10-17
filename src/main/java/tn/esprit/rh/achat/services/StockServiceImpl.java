@@ -18,6 +18,7 @@ public class StockServiceImpl implements IStockService {
 	StockRepository stockRepository;
 
 
+	
 	@Override
 	public List<Stock> retrieveAllStocks() {
 		// récuperer la date à l'instant t1
