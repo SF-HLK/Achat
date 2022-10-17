@@ -20,9 +20,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Facture implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -43,6 +43,16 @@ public class Facture implements Serializable {
     @OneToMany(mappedBy="facture")
     @JsonIgnore
     private Set<Reglement> reglements;
-
+	public Facture(long idFacture, float montantRemise, float montantFacture
+			) {
+		super();
+		this.idFacture = idFacture;
+		this.montantRemise = montantRemise;
+		this.montantFacture = montantFacture;
+	
+		
+		
+		
+	}
 	
 }

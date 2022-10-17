@@ -111,6 +111,18 @@ public class FactureServiceImpl implements IFactureService {
 		float pourcentage=(totalRecouvrementEntreDeuxDates/totalFacturesEntreDeuxDates)*100;
 		return pourcentage;
 	}
+
+
+	//public void deleteFacture(Long idFacture) {
+		// TODO Auto-generated method stub
+		
+//	}
+
+
+	//public List<Facture> retrieveAllFacture() {
+		// TODO Auto-generated method stub
+		//return null;
+	//}
 	
 
 }
