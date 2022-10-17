@@ -1,17 +1,13 @@
 package tn.esprit.rh.achat;
 
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
 import tn.esprit.rh.achat.services.ProduitServiceImpl;
@@ -23,11 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class ProduitServiceMock {
+public class ProduitServiceMockTest {
 
 
     @Mock
@@ -48,7 +43,7 @@ public class ProduitServiceMock {
         }
     };
     @Test
-    public void testRetrieveProduit() {
+     void testRetrieveProduit() {
         Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
         Produit produit1 = produitService.retrieveProduit(55L);
         assertNotNull(produit1);
@@ -56,7 +51,7 @@ public class ProduitServiceMock {
     }
 
     @Test
-    public void testretrieveAllProduits() {
+     void testretrieveAllProduits() {
         Mockito.when(produitRepository.findAll()).thenReturn(listProduits);
         List<Produit> listproduit3 = produitService.retrieveAllProduits();
         assertEquals(3, listproduit3.size());
@@ -64,7 +59,7 @@ public class ProduitServiceMock {
     }
 
     @Test
-    public void testaddProduit(){
+     void testaddProduit(){
         Mockito.when(produitRepository.save(p1)).thenReturn(p1);
         Produit produit1 = produitService.addProduit(p1);
         assertNotNull(produit1);
@@ -73,7 +68,7 @@ public class ProduitServiceMock {
 
 
     @Test
-    public void testdeleteProduit(){
+    void testdeleteProduit(){
 
         produitService.deleteProduit(66L);
         Mockito.verify(produitRepository, times(0)).delete(p2);
