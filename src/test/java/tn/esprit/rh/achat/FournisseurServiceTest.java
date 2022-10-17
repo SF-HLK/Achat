@@ -56,7 +56,7 @@ public class FournisseurServiceTest {
         assertNotNull(fournisseur1);
     }
     @Test
-    void testretrieveAllFournisseur() {
+    void testretrieveAllFournisseurs() {
         System.out.println("retrieveAllFournisseurs");
         Mockito.when(fournisseurRepository.findAll()).thenReturn(listFournisseurs);
         List<Fournisseur> fournisseurList3 = fournisseurService.retrieveAllFournisseurs();
