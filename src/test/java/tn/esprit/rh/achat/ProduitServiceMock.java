@@ -1,6 +1,7 @@
 package tn.esprit.rh.achat;
 
 
+import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,6 +30,8 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ProduitServiceMock {
 
+/*
+
 
     @Mock
     ProduitRepository produitRepository;
@@ -47,6 +50,10 @@ class ProduitServiceMock {
             add(new Produit(46L, "4503","produit3",70));
         }
     };
+
+
+
+
     @Test
     void testRetrieveProduit() {
         Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
@@ -82,5 +89,5 @@ class ProduitServiceMock {
         System.out.println("4");
     }
 
-
+*/
 }
