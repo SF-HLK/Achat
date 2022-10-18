@@ -13,14 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.repositories.FournisseurRepository;
 import tn.esprit.rh.achat.services.FournisseurServiceImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
-//import static org.springframework.test.util.AssertionErrors.assertNotNull;
 import static tn.esprit.rh.achat.entities.CategorieFournisseur.ORDINAIRE;
 import static tn.esprit.rh.achat.entities.CategorieFournisseur.CONVENTIONNE;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
