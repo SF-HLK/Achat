@@ -53,8 +53,8 @@ public class ProduitServiceJuinitTest {
     @Order(3)
     public void testModifyProduit()   {
 
-       // Produit produitUpdated  = produitService.updateProduit(p2);
-     //   Assertions.assertEquals(p2.getCodeProduit(), produitUpdated.getCodeProduit());
+        Produit produitUpdated  = produitService.updateProduit(p2);
+        Assertions.assertEquals(p2.getCodeProduit(), produitUpdated.getCodeProduit());
     }
 
     @Test
