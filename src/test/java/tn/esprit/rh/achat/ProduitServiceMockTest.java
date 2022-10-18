@@ -3,11 +3,9 @@ package tn.esprit.rh.achat;
 
 import org.junit.jupiter.api.Test;
 
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.rh.achat.entities.Produit;
@@ -24,8 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
 
 @SpringBootTest
-@RunWith(MockitoJUnitRunner.class)
-class ProduitServiceMockTest {
+@AutoConfigureMockMvc
+public class ProduitServiceMockTest {
 
 
     @Mock
@@ -49,7 +47,7 @@ class ProduitServiceMockTest {
 
 
     @Test
-    public void testRetrieveProduit() {
+    void testRetrieveProduit() {
 
         Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
         Produit produit1 = produitService.retrieveProduit(55L);
@@ -87,7 +85,6 @@ class ProduitServiceMockTest {
     void testupdateProduit(){
         Mockito.when(produitRepository.save(p1)).thenReturn(p1);
         Produit produit1 = produitService.updateProduit(p1);
-        //assertNotNull(produit1);
         Mockito.verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
         System.out.println("5");
     }
