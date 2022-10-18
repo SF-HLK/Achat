@@ -1,28 +1,42 @@
 package tn.esprit.rh.achat;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
+import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.repositories.ProduitRepository;
+import tn.esprit.rh.achat.services.ProduitServiceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
+@AutoConfigureMockMvc
 public class ProduitServiceMock {
 
 
-
-
-   /* @Mock
+    @Mock
     ProduitRepository produitRepository;
 
-    @InjectMocks
-    ProduitServiceImpl produitService;
+   @InjectMocks
+   ProduitServiceImpl produitService;
 
     Produit p1 = new Produit(55L, "2365","produit1",50);
     Produit p2 = new Produit(66L, "5681","produit5",120);
@@ -36,23 +50,18 @@ public class ProduitServiceMock {
         }
     };
 
-*/
 
 
     @Test
     public void testRetrieveProduit() {
-        System.out.println("aaa");
 
-        String a = "eee";
-
-        assertNotNull(a);
-      /*  Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
+        Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
         Produit produit1 = produitService.retrieveProduit(55L);
         assertNotNull(produit1);
         System.out.println("1");
-        //assertEquals(produit1.getIdProduit(),55L);*/
-    }
-/*
+        assertEquals(produit1.getIdProduit(),55L);
+   }
+
     @Test
     void testretrieveAllProduits() {
         Mockito.when(produitRepository.findAll()).thenReturn(listProduits);
@@ -71,13 +80,10 @@ public class ProduitServiceMock {
         System.out.println("3");
     }
 
-
     @Test
     void testdeleteProduit(){
         produitService.deleteProduit(66L);
         Mockito.verify(produitRepository, times(1)).deleteById(66L);
         System.out.println("4");
     }
-
-*/
 }
