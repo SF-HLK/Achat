@@ -11,8 +11,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
+import tn.esprit.rh.achat.repositories.StockRepository;
 import tn.esprit.rh.achat.services.ProduitServiceImpl;
+import tn.esprit.rh.achat.services.StockServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +30,11 @@ import static org.mockito.Mockito.times;
 @RunWith(MockitoJUnitRunner.class)
 public class ProduitServiceMockTest {
 
+
+    @Mock
+    StockRepository sr;
+    @InjectMocks
+    StockServiceImpl ss;
 
     @Mock
     ProduitRepository produitRepository;
@@ -90,6 +98,27 @@ public class ProduitServiceMockTest {
         Mockito.verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
         System.out.println("5");
     }
+
+    @Test
+   public void testassignProduitToStock(){
+
+        Stock stock = new Stock();
+        stock.setIdStock(1L);
+        stock.setLibelleStock("libelle3");
+        stock.setQte(20);
+        stock.setQteMin(1);
+
+        Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p1));
+        Mockito.when(sr.findById(Mockito.anyLong())).thenReturn(Optional.of(stock));
+        produitService.assignProduitToStock(55L,1L);
+
+       // Mockito.verify(sr, times(1)).save(Mockito.any(Stock.class));
+        Mockito.verify(produitRepository, times(1)).save(Mockito.any(Produit.class));
+
+        System.out.println("6");
+    }
+
+
 
 
 }
