@@ -11,13 +11,14 @@ import java.util.List;
 
 //import java.util.Optional;
 import org.junit.Test;
-
+ 
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.rh.achat.entities.Stock;
@@ -27,6 +28,7 @@ import tn.esprit.rh.achat.services.StockServiceImpl;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
+@AutoConfigureMockMvc
 public class StockServiceTest {
 
 	@Mock
