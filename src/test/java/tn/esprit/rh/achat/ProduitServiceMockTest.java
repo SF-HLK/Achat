@@ -72,7 +72,7 @@ public class ProduitServiceMockTest {
         List<Produit> listproduit3 = produitService.retrieveAllProduits();
         assertEquals(3, listproduit3.size());
         //assertEquals(produit1.getIdProduit(),55L);
-        System.out.println("25");
+        System.out.println("2555");
     }
 
     @Test
