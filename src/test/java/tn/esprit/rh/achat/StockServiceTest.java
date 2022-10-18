@@ -34,13 +34,13 @@ public class StockServiceTest {
 	@InjectMocks
 	StockServiceImpl ss;
 
-	/*@Test
+	@Test
 	public void testAddStock() {
 		Stock stock = new Stock();
 		Mockito.when(sr.save(ArgumentMatchers.any(Stock.class))).thenReturn(stock);
 		Stock Stockadd = ss.addStock(stock);
 		assertThat(Stockadd.getLibelleStock()).isSameAs(Stockadd.getLibelleStock());
-	}*/
+	}
 
 	@Test
 	public void RetrieveAllStockTest() {
@@ -52,7 +52,7 @@ public class StockServiceTest {
 		verify(sr).findAll();
 	}
 
-	/*@Test
+	@Test
 	public void DeleteStockIfExistTest() {
 		Stock stock = new Stock();
 		stock.setIdStock(1L);
@@ -62,8 +62,8 @@ public class StockServiceTest {
 		/*Mockito.when(sr.findById(stock.getIdStock())).thenReturn(Optional.of(stock));
 		ss.deleteStock(stock.getIdStock());
 		verify(sr).deleteById(stock.getIdStock());*/
-		/*System.out.println("testdeleteStock");
+		System.out.println("testdeleteStock");
         ss.deleteStock(1L);
         Mockito.verify(sr, times(0)).delete(stock);
-	}*/
+	}
 }
