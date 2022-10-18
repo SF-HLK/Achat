@@ -2,6 +2,7 @@ package tn.esprit.rh.achat;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -54,18 +55,21 @@ public class FactureServiceTestMock {
 		verify(sr).findAll();
 	}
 
-	//@Test
-	//public void DeleteFactureIfExistTest() {
-		//Facture facture = new Facture();
-		//facture.setIdFacture(1L);
-		//facture.setArchivee(null);
-		//facture.setDateCreationFacture(null);
-		
-
+	@Test
+	public void DeleteFactureIfExistTest() {
+		Facture facture = new Facture();
+		facture.setIdFacture(1L);
+		facture.setArchivee(null);
+		facture.setDateCreationFacture(null);
+		 System.out.println("testdeletefacture");
 		
 		//Mockito.when(sr.findById(facture.getIdFacture())).thenReturn(Optional.of(facture));
 		//ss.cancelFacture(facture.getIdFacture());
 		//verify(sr).deleteById(facture.getIdFacture());
+		 System.out.println("testdeletefacture");
+		 ss.cancelFacture(66L);
+		 Mockito.verify(sr, times(0)).delete(facture);
+	};
 //	};
 
 }
