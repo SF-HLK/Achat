@@ -9,7 +9,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.Optional;
+//import java.util.Optional;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
@@ -53,7 +53,7 @@ public class StockServiceTest {
 	}
 
 	@Test
-	public void DeleteStockIfExistTest() {
+	public void DeleteStockTest() {
 		Stock stock = new Stock();
 		stock.setIdStock(1L);
 		stock.setLibelleStock("libelle3");
