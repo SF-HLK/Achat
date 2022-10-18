@@ -74,7 +74,7 @@ public class ProduitServiceMockTest {
         //assertEquals(produit1.getIdProduit(),55L);
         System.out.println("2555");
     }
-//ssss
+//sssszz
     @Test
     public void testaddProduit(){
         Mockito.when(produitRepository.save(p1)).thenReturn(p1);
