@@ -1,29 +1,26 @@
 package tn.esprit.rh.achat;
 
 
-import static org.mockito.Mockito.verify;
-
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
-
-import org.springframework.boot.test.context.SpringBootTest;
-
-
-
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import java.util.Optional;
+import org.springframework.boot.test.context.SpringBootTest;
 
-
-
-
-import static org.mockito.BDDMockito.*;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 import tn.esprit.rh.achat.services.CategorieProduitServiceImpl;
+
+
+import java.util.Optional;
+
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+
 
 
 @SpringBootTest
