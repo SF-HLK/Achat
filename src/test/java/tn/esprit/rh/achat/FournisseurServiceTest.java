@@ -35,7 +35,7 @@ public class FournisseurServiceTest {
 
     Fournisseur f1 = new Fournisseur(12L, "Code Safa","Libelle HLK",ORDINAIRE);
     Fournisseur f2 = new Fournisseur(22L, "Code Safa2","Libelle HLK2",ORDINAIRE);
-//Hiiiiiiiiiiiiiiii2223333333333334444444444
+//Hiiiiiiiiiiiiiiii22233333333333344444444445555555555555555
     List<Fournisseur> listFournisseurs = new ArrayList<Fournisseur>() {
         {
             add(f1);
