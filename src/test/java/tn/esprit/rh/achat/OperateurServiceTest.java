@@ -36,14 +36,14 @@ public class OperateurServiceTest {
 	    @InjectMocks
 	    OperateurServiceImpl operateurService;
 
-	    Operateur o1 = new Operateur(12L, "Code Rouka","Libelle Chi","23333",null);
-	    Operateur o2 = new Operateur(22L, "Code Rouka2","Libelle Chi2","000000",null);
+	    Operateur o1 = new Operateur(12L, "Rouka","Ch","23333",null);
+	    Operateur o2 = new Operateur(22L, "Rouka2","Ch2","000000",null);
 
 	    List<Operateur> listOperateurs = new ArrayList<Operateur>() {
 	        {
 	            add(o1);
-	            add(new Operateur(10L, "code 1","libelle 1","11",null));
-	            add(new Operateur(20L, "code 2","libelle 2","22",null));
+	            add(new Operateur(10L, "N1","P1","11",null));
+	            add(new Operateur(20L, "N2","P2","22",null));
 	        }
 	    };
 
