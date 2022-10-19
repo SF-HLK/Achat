@@ -35,6 +35,7 @@ CategorieProduitRepository categorieProduitRepository;
 CategorieProduitServiceImpl categorieProduit;
 
 CategorieProduit c1 = new CategorieProduit (1L,"abc","homme",null);
+CategorieProduit c2 = new CategorieProduit (2L,"abd","femme",null);
 
 @Test
 public void testRetrievecategorie() {
@@ -52,5 +53,10 @@ public void createcategorieproduitTest()
 
 	verify(categorieProduitRepository, times(1)).save(cat1);
 }
-	
+@Test
+public void testDeleteStock() {
+    long catid =1L;
+    categorieProduit.deleteCategorieProduit(catid);
+    Assertions.assertNull(categorieProduit.retrieveCategorieProduit(catid));
+}
 }	
