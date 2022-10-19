@@ -30,8 +30,8 @@ public class StockServiceTest {
     @InjectMocks
    StockServiceImpl stockService;
 
-    Stock s1 = new Stock(12L, "Code Safa",51,255);
-    Stock f2 = new Stock(22L, "Code Safa2",12,20);
+    Stock s1 = new Stock(12L, "Code Hana",51,255);
+    Stock f2 = new Stock(22L, "Code Hana2",12,20);
 
     List<Stock> listStocks = new ArrayList<Stock>() {
         {
