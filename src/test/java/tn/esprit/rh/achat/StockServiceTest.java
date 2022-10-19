@@ -1,72 +1,77 @@
 package tn.esprit.rh.achat;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.junit.jupiter.api.Test;
-
-//import java.util.Optional;
- 
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.StockRepository;
 import tn.esprit.rh.achat.services.StockServiceImpl;
+import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-@AutoConfigureMockMvc
 public class StockServiceTest {
 
-	@Mock
-	StockRepository sr;
-	@InjectMocks
-	StockServiceImpl ss;
+    @Mock
+    StockRepository stockRepository;
 
-	@Test
-	public void testAddStock() {
-		Stock stock = new Stock();
-		Mockito.when(sr.save(ArgumentMatchers.any(Stock.class))).thenReturn(stock);
-		Stock Stockadd = ss.addStock(stock);
-		assertThat(Stockadd.getLibelleStock()).isSameAs(Stockadd.getLibelleStock());
-	}
+    @InjectMocks
+   StockServiceImpl stockService;
 
-	@Test
-	public void RetrieveAllStockTest() {
-		List<Stock> stocks = new ArrayList<>();
-		stocks.add(new Stock());
-		when(sr.findAll()).thenReturn(stocks);
-		List<Stock> expected = ss.retrieveAllStocks();
-		assertEquals(expected, stocks);
-		verify(sr).findAll();
-	}
+    Stock s1 = new Stock(12L, "Code Safa",51,255);
+    Stock f2 = new Stock(22L, "Code Safa2",12,20);
 
-	@Test
-	public void DeleteStockTest() {
-		Stock stock = new Stock();
-		stock.setIdStock(1L);
-		stock.setLibelleStock("libelle3");
-		stock.setQte(20);
-		stock.setQteMin(1);
-		/*Mockito.when(sr.findById(stock.getIdStock())).thenReturn(Optional.of(stock));
-		ss.deleteStock(stock.getIdStock());
-		verify(sr).deleteById(stock.getIdStock());*/
-		System.out.println("testdeleteStock");
-        ss.deleteStock(1L);
-        Mockito.verify(sr, times(0)).delete(stock);
-	}
+    List<Stock> listStocks = new ArrayList<Stock>() {
+        {
+            add(s1);
+            add(new Stock(10L, "code 1",10,20));
+            add(new Stock(20L, "code 2",21,30));
+        }
+    };
+
+    @Test
+    public void retrieveStocks() {
+        System.out.println("retrieveStocks");
+        Mockito.when(stockRepository.findById(12L)).thenReturn(Optional.of(s1));
+        Stock stock1 = stockService.retrieveStock(12L);
+        assertNotNull(stock1);
+    }
+    @Test
+   public void testretrieveAllStock() {
+        System.out.println("retrieveAllStocks");
+        Mockito.when(stockRepository.findAll()).thenReturn(listStocks);
+        List<Stock> stockList3 = stockService.retrieveAllStocks();
+        assertEquals(3, stockList3.size());
+        //assertEquals(stock1.,55L);
+    }
+
+    @Test
+    public void testaddStock(){
+        System.out.println("testaddStock");
+        Mockito.when(stockRepository.save(s1)).thenReturn(s1);
+        Stock stock1 = stockService.addStock(s1);
+        assertNotNull(stock1);
+        Mockito.verify(stockRepository, times(1)).save(Mockito.any(Stock.class));
+    }
+
+
+    @Test
+    public void testdeleteStock(){
+        System.out.println("testdeleteStock");
+        stockService.deleteStock(66L);
+        Mockito.verify(stockRepository, times(0)).delete(f2);
+    }
+
 }
