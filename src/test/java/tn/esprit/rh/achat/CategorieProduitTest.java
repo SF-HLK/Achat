@@ -15,6 +15,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import static org.mockito.BDDMockito.*;
 
@@ -36,12 +38,30 @@ CategorieProduitServiceImpl categorieProduit;
 
 CategorieProduit c1 = new CategorieProduit (1L,"abc","homme",null);
 
+
+
+
+List<CategorieProduit> listcategorie = new ArrayList<CategorieProduit>() {
+    {
+        add(c1);
+        add(new CategorieProduit(2L, "bcd","enfant",null));
+        add(new CategorieProduit(46L, "asd","femme",null));
+    }
+};
+
 @Test
 public void testRetrievecategorie() {
 Mockito.when(categorieProduitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(c1));
 CategorieProduit categorie1 = categorieProduit.retrieveCategorieProduit(1L);
 Assertions.assertNotNull(categorie1);
 }
+@Test
+public void testdeleteProduit(){
+	categorieProduit.deleteCategorieProduit(1L);
+    Mockito.verify(categorieProduitRepository, times(1)).deleteById(66L);
+    System.out.println("4");
+}
+
 
 @Test
 public void createcategorieproduitTest()
