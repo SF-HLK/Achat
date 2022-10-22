@@ -5,6 +5,7 @@ services:
     container_name: mysql
     image: mysql:8
     restart: unless-stopped
+    tty: true
     environment:
       - MYSQL_ROOT_PASSWORD=root
     ports:
