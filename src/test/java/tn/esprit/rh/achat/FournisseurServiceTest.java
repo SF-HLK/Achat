@@ -32,10 +32,10 @@ public class FournisseurServiceTest {
 
     @InjectMocks
    FournisseurServiceImpl fournisseurService;
-
+//test
     Fournisseur f1 = new Fournisseur(12L, "Code Safa","Libelle HLK",ORDINAIRE);
     Fournisseur f2 = new Fournisseur(22L, "Code Safa2","Libelle HLK2",ORDINAIRE);
-//hiiiii2222333444
+
     List<Fournisseur> listFournisseurs = new ArrayList<Fournisseur>() {
         {
             add(f1);
