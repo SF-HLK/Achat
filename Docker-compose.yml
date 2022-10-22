@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   mysqldb:
-    container_name: mysqldb
+    container_name: mysql
     image: mysql:8
     restart: always
     environment:
@@ -11,8 +11,8 @@ services:
       - /home/mysql/data:/var/lib/mysql
 
   spring_app:
-    image: hanabh/achatproject
-    container_name: backend
+    image: hanabouhdida/achatproject
+    container_name: achatproject
     restart: on-failure
     ports:
       - 9090:9090
