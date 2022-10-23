@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  mysqldb:
+    container_name: mysql
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - /home/mysql/data:/var/lib/mysql
+
+  spring_app:
+    image: hiba1512/achattproject
+    container_name: achattprojectt
+    restart: always
+    ports:
+      - 9090:9090
+    depends_on:
+      - mysqldb
