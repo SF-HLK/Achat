@@ -50,7 +50,7 @@ public class Facture implements Serializable {
 		this.montantRemise = montantRemise;
 		this.montantFacture = montantFacture;
 	
-		
+		//jj
 		
 		
 	}
