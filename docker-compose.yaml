@@ -16,11 +16,11 @@ services:
         published: 3306
         protocol: tcp #Forwars the exposed port 3306 on the container to port 3306 on the host machine
     volumes:
-      - /mysqldata:/var/lib/mysql:rw
+      - /home/vagrant/mysql:/var/lib/mysql:rw
   #Back-end Spring Boot Application
   springboot-app:
     #The docker file in BE, build the jar and provides the docker image.
-    image: magnum3016/springbootachat
+    image: magnum3016/springbootachat:latest
     container_name: springboot-app
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
