@@ -2,9 +2,8 @@ package tn.esprit.rh.achat;
 
 
 
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -22,9 +21,11 @@ import static tn.esprit.rh.achat.entities.CategorieFournisseur.CONVENTIONNE;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
+@RunWith(MockitoJUnitRunner.class)
 public class FournisseurServiceTest {
 
     @Mock
@@ -32,7 +33,7 @@ public class FournisseurServiceTest {
 
     @InjectMocks
    FournisseurServiceImpl fournisseurService;
-//test
+
     Fournisseur f1 = new Fournisseur(12L, "Code Safa","Libelle HLK",ORDINAIRE);
     Fournisseur f2 = new Fournisseur(22L, "Code Safa2","Libelle HLK2",ORDINAIRE);
 
@@ -52,7 +53,7 @@ public class FournisseurServiceTest {
         assertNotNull(fournisseur1);
     }
     @Test
-    void testretrieveAllFournisseurs() {
+    public void testretrieveAllFournisseurs() {
         System.out.println("retrieveAllFournisseurs");
         Mockito.when(fournisseurRepository.findAll()).thenReturn(listFournisseurs);
         List<Fournisseur> fournisseurList3 = fournisseurService.retrieveAllFournisseurs();
@@ -61,7 +62,7 @@ public class FournisseurServiceTest {
     }
 
     @Test
-    void testaddFournisseur(){
+    public void testaddFournisseur(){
         System.out.println("testaddFournisseur");
         Mockito.when(fournisseurRepository.save(f1)).thenReturn(f1);
         Fournisseur fournisseur1 = fournisseurService.addFournisseur(f1);
@@ -71,7 +72,7 @@ public class FournisseurServiceTest {
 
 
     @Test
-    void testdeleteFournisseur(){
+    public void testdeleteFournisseur(){
         System.out.println("testdeleteFournisseur");
         fournisseurService.deleteFournisseur(66L);
         Mockito.verify(fournisseurRepository, times(0)).delete(f2);
