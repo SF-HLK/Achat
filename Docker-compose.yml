@@ -5,6 +5,7 @@ services:
     container_name: mysql
     image: mysql:8
     restart: always
+    privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
