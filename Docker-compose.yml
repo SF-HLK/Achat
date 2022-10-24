@@ -8,6 +8,8 @@ services:
     privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
     volumes:
       - /home/mysql/data:/var/lib/mysql
 
