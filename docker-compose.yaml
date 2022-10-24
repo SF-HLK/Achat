@@ -36,3 +36,10 @@ services:
       - 8089:8089 #Forwars the exposed port 8080 on the container to port 8080 on the host machine
     links:
       - mysql-db
+  angular-app:
+    #The docker file in FE, builds and provides the docker image.
+    image: magnum3016/anglarachat:latest
+    ports:
+      - 4200:4200 #Forwars the exposed port 4200 on the container to port 4200 on the host machine
+    links:
+      - springboot-app
