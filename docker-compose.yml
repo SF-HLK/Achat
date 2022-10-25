@@ -40,7 +40,7 @@ services:
     container_name: achat-front
     ports:
       - '4200:80'
-    image: hanabouhdida/achat-front
+    image: hanabouhdida/achat-front:latest
     links:
       - spring-app
 
