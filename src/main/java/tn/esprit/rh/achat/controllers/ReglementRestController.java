@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @Api(tags = "Gestion des reglements")
 @RequestMapping("/reglement")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*",allowedHeaders ="*")
 public class ReglementRestController {
 
     @Autowired

@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @Api(tags = "Gestion des fournisseurss")
 @RequestMapping("/fournisseur")
+@CrossOrigin(origins = "*",allowedHeaders ="*")
 public class FournisseurRestController {
 
 	@Autowired
