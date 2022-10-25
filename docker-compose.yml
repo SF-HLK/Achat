@@ -31,8 +31,12 @@ services:
     restart: on-failure
     ports:
       - "9090:9090"
-    depends_on:
-      - mysqldb
     links:
       - mysqldb
-
+  angular-app:
+      image: safahlk/achatfrontend:latest
+      container_name: achatfrontend
+      ports:
+        - 4200:80
+      links:
+        - spring-app
