@@ -41,6 +41,6 @@ services:
       ports:
         - 4200:80
       links:
-        - spring-app
+        - spring_app
 volumes:
   mysqldb: { }
