@@ -38,7 +38,7 @@ services:
 
   angular-app:
     depends_on:
-      - spring-app
+      - achatproject
     container_name: achat-front
     ports:
       - '4200:80'
