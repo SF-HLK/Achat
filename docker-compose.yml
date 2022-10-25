@@ -36,3 +36,13 @@ services:
     links:
       - mysqladmin
 
+  angular-app:
+    depends_on:
+      - spring-app
+    container_name: achat-front
+    ports:
+      - '4200:80'
+    image: hanabouhdida/achat-front
+
+volumes:
+  mysql: { }
