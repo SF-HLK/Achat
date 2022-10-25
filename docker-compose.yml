@@ -34,9 +34,13 @@ services:
     links:
       - mysqldb
   angular-app:
+      depends_on:
+      - spring_app
       image: safahlk/achatfrontend:latest
       container_name: achatfrontend
       ports:
         - 4200:80
       links:
         - spring-app
+volumes:
+  mysqldb: { }
