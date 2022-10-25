@@ -37,12 +37,13 @@ services:
       - mysqladmin
 
   angular-app:
-    depends_on:
-      - achatproject
     container_name: achat-front
     ports:
       - '4200:80'
     image: hanabouhdida/achat-front
+    links:
+      - spring_app
+
 
 volumes:
   mysql: { }
